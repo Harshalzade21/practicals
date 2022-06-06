@@ -1,0 +1,193 @@
+bit stuffing
+
+
+#include <stdio.h>
+#include <string.h>
+ 
+void main()
+{
+  int x[50], y[50], n;
+  int i, j, k, count = 1;
+ 
+  printf("Enter size of a bit string:");
+  scanf("%d", &n);
+ 
+  printf("Enter the bit string(0's &1's):");
+  for (i = 0; i < n; i++)
+  {
+    scanf("%d", &x[i]);
+  }
+ 
+  i = 0;
+  j = 0;
+ 
+  while (i < n)
+  {
+    if (x[i] == 1)
+    {
+      y[j] = x[i];
+ 
+     //count is less than 5 as 0 is inserted after every 
+     //5 consecutive 1's
+      for (k = i + 1; x[k] == 1 && k < n && count < 5; k++)
+      {
+        j++;
+        y[j] = x[k];
+        count++;
+ 
+        if (count == 5)
+        {
+          j++;
+          y[j] = 0;
+        }
+ 
+        i = k;
+      }
+    }
+    else
+    {
+      y[j] = x[i];
+    }
+ 
+    i++;
+    j++;
+  }
+ 
+ //Displaying final result
+  printf("Result of Bit Stuffing:");
+  for (i = 0; i < j; i++)
+  {
+    printf("%d", y[i]);
+  }
+ 
+
+}
+
+2)CRC
+
+#include <stdio.h>
+#include<string.h>
+int main()
+{
+	int i, j, data_word, divisor;
+	char input[100], key[30], temp[30], quot[100], rem[30], key1[30];
+	printf("Enter Data: ");
+	scanf("%s", &input);
+	printf("Enter Key: ");
+	scanf("%s", &key);
+	data_word = strlen(key);
+	divisor = strlen(input);
+	strcpy(key1, key);
+	for (i = 0; i < data_word - 1; i++)
+	{
+		input[divisor + i] = '0';
+	}
+	for (i = 0; i < data_word; i++)
+		temp[i] = input[i];
+	for (i = 0; i < divisor; i++)
+	{
+		quot[i] = temp[0];
+		if (quot[i] == '0')
+			for (j = 0; j < data_word; j++)
+				key[j] = '0';
+		else
+			for (j = 0; j < data_word; j++)
+				key[j] = key1[j];
+		for (j = data_word - 1; j > 0; j--)
+		{
+			if (temp[j] == key[j])
+				rem[j - 1] = '0';
+			else
+				rem[j - 1] = '1';
+		}
+		rem[data_word - 1] = input[i + data_word];
+		strcpy(temp, rem);
+	}
+	strcpy(rem, temp);
+	printf("\nQuotient is ");
+	for (i = 0; i < divisor; i++)
+		printf("%c", quot[i]);
+	printf("\nRemainder is ");
+	for (i = 0; i < data_word - 1; i++)
+		printf("%c", rem[i]);
+	printf("\n\nCode word received at the receiver side: ");
+	for (i = 0; i < divisor; i++)
+		printf("%c", input[i]);
+	for (i = 0; i < data_word - 1; i++)
+		printf("%c", rem[i]);
+}
+
+3)Ip class
+
+
+#include<stdio.h>
+int main(){
+char x;
+int a,b,c,d;
+printf("ENTER THE IP ADDRESS:\n");
+scanf("%d%c%d%c%d%c%d",&a,&x,&b,&x,&c,&x,&d);
+if(a>=0&&a<=127){
+
+printf("it is in Class A");
+}
+ else if(a>128 &&a<=191){
+ printf("it is in Class B");
+}
+ else if(a>=192 &&a<=233){
+ printf("it is in Class C");
+}
+ else if(a>=234 &&a<=239){
+ printf("it is in Class D");
+}
+ else if(a>=240 &&a<=255){
+ printf("it is in Class E");
+}
+ else{
+ printf("OUT OF RANGE");
+}
+ return 0;
+}
+
+
+4)32bit
+
+#include<iostream>
+using namespace std;
+ 
+void DEC2BIN(int dec)
+{
+  for (int i = 128; i != 0; i=i>>1)
+  {
+    if (dec & i)
+      cout<<"1";
+    else
+      cout<<"0";
+  }
+}
+int main()
+        {
+        int i,j;
+        int dec[4];
+        int bin[8]={128,64,32,16,8,4,2,1};
+ 
+        //INPUT
+        cout<<"Enter the IP Address: ";
+        for(i=0;i<4;i++)
+        cin>>dec[i];
+ 
+        //TRANSLATION
+        cout<<"The ip address is: "<<dec[0];
+        cout<<"."<<dec[1]<<"."<<dec[2]<<"."<<dec[3]<<endl;
+ 
+        for(i=0; i<4; i++)
+                {
+                DEC2BIN(dec[i]);        
+ 
+                if(i!=3)
+                cout<<".";
+                }
+ 
+        //getch();
+        return 1;
+        }
+ 
