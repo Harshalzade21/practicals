@@ -1,0 +1,137 @@
+<?php 
+echo 'Hello, World!';
+?>
+
+
+
+2=
+<?php
+$num1=20;
+      $num2=15;
+      $num3=22;
+echo "The Given three Numbers are $num1, $num2 and $num3 <br>";
+      if($num1>$num2 && $num1>$num3){
+        echo "$num1 is a maximum number";
+      }
+      else{
+        if($num2>$num1 && $num2>$num3){
+          echo "$num2 is a maximum number";
+        }
+        else
+          echo "$num3 is a maximum number";
+      } 
+?>
+
+3=
+<html>
+<head>
+<title> Find out odd or even number </title>
+</head>
+<body>
+<?php  
+$number=12547;  
+if($number%2==0)  
+{  
+ echo "$number is Even Number";   
+}  
+else  
+{  
+ echo "$number is Odd Number";  
+}  
+?> 
+</body>
+</html>
+
+4=
+<?php  
+$a = 45;  
+$b = 78;  
+$third = $a;  
+$a = $b;  
+$b = $third;  
+echo "After swapping: ";  
+echo "a =" $a."  b=" $b;  
+?>
+
+
+
+5=
+<?php
+$table = 9;
+$length = 10;
+$i = 1;
+
+echo "Multiplication table: $table <br>";
+for($i=1; $i<=$length; $i++)
+ echo "$table * $i = ".$table * $i. "<br>";
+?>
+
+6=
+<?php
+
+$day = 6;
+echo "$day = " ;
+switch($day)
+{
+    case 1:
+    echo "Monday";
+    break;
+    case 2:
+    echo "Tuesday";
+    break;
+    case 3:
+    echo "Wednesday";
+    break;
+    case 4:
+    echo "Thursday";
+    break;
+    case 5:
+    echo "Friday";
+    break;
+    case 6:
+    echo "Saturday";
+    break;
+    case 7:
+    echo "Sunday";
+    break;
+    default:
+    echo "Invalid";
+    
+}
+
+?>
+
+7=
+<?php  
+
+$num = 12345;
+$revnum = 0;
+while ($num > 1)
+{
+    $rem = $num % 10;
+    $revnum = ($revnum * 10 ) + $rem;
+    $num = ($num / 10);
+}
+echo "Reverse of $num is : $revnum <br>";
+
+$string = "HERO";  
+$length = strlen($string);  
+echo "The reverse of $string is : ";
+for ($i=($length-1) ; $i >= 0 ; $i--)   
+{  
+echo $string[$i];
+}  
+
+
+?>
+
+8=
+<?php
+    $my_year = 1999;
+echo "$my_year is  ";
+
+      if ($my_year % 4 == 0)
+         print("a leap year");
+      else
+         print("not a leap year");
+?
